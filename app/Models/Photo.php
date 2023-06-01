@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Photo extends Model
 {
     use HasFactory;
-    
+    protected $fillable = ['title', 'description', 'picture'];
     
     public static function find($id) {
         $photos = self::all();

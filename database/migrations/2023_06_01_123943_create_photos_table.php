@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('title');
             $table->longText('description');
             $table->string('photo')->nullable();
-            $table->string('author');
             $table->timestamps();
         });
     }

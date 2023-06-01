@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\PhotosController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PhotosController;
 use App\Models\Photo;
 
 /*
@@ -15,10 +15,19 @@ use App\Models\Photo;
 |
 */
 
-//show index page
+//Show index page
 Route::get('/', [PhotosController::class, 'index']);
 
-//show single photo
+//Store photo data
+Route::post('photo-all', [PhotosController::class, 'store']);
+
+//Show all photos page
+Route::get('photo-all', [PhotosController::class, 'allPhotos']);
+
+//Show upload photo page
+Route::get('photo-upload',[PhotosController::class, 'upload']);
+
+//Show single photo
 Route::get('photo-single/{id}', function($id) {
     return view('photo-single', [
         'photo' => Photo::find($id)

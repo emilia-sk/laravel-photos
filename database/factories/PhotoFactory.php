@@ -20,7 +20,6 @@ class PhotoFactory extends Factory
             'title' => $this->faker->name(),
             'description' => $this->faker->sentence(2),
             'photo' => $this->faker->imageUrl(),
-            'author'=> $this->faker->name(),
         ];
     }
 }
