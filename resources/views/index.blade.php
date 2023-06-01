@@ -10,7 +10,7 @@
         @foreach($photos as $photo)
         <div class="col"><!--photo start-->
           <div class="card shadow-sm">
-            <img src="{{asset('images/no-image.png')}}" class="bd-placeholder-img card-img-top" width="100%" height="225">
+            <img src="{{$photo['photo']}}" class="bd-placeholder-img card-img-top" width="100%" height="225">
             <h5 class="card-title px-3">{{$photo['title']}}</h5>
             <div class="card-body">
               <p class="card-text">{{$photo['description']}}</p>
