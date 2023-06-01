@@ -9,14 +9,19 @@
                     <li><a href="#" class="nav-link px-2 text-white">Контакти</a></li>
                 </ul>
                 <div class="text-end">
-                    <!--USER NOT LOGGED IN-->
-                    <button type="button" class="btn btn-outline-light me-2">Вход</button>
-                    <button type="button" class="btn btn-warning">Регистрация</button>
-
                     <!--USER LOGGED IN-->
-                    <p class="text-welcome d-inline pb-3 px-2"> Здравей, ...</p>
-                    <button type="button" class="btn btn-outline-light me-2">Изход</button>
-                    <a href="photo-upload" class="btn btn-outline-light me-2">Качи Снимка</a>
+                    @auth
+                        <p class="text-welcome d-inline pb-3 px-2"> Здравей, {{ auth()->user()->name }}</p>
+                        <a href="photo-upload" class="btn btn-outline-light me-2">Качи Снимка</a>
+                        <form method="POST" action="/logout" class="d-inline">
+                            @csrf
+                            <button type="submit" class="btn btn-success me-2">Изход</button>
+                        </form>
+                    @else
+                        <!--USER NOT LOGGED IN-->
+                        <a href="login" class="btn btn-outline-light me-2">Вход</a>
+                        <a href="register" class="btn btn-success">Регистрация</a>
+                    @endauth
                 </div>
             </div>
         </div>

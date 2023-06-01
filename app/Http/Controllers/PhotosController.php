@@ -55,4 +55,6 @@ class PhotosController extends Controller
                'photo' => $photo
            ]);
        }
+
+ 
 }

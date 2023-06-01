@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PhotosController;
+use App\Http\Controllers\UserController;
 use App\Models\Photo;
 
 /*
@@ -18,18 +19,33 @@ use App\Models\Photo;
 //Show index page
 Route::get('/', [PhotosController::class, 'index']);
 
-//Store photo data
-Route::post('photo-all', [PhotosController::class, 'store']);
-
 //Show all photos page
 Route::get('photo-all', [PhotosController::class, 'allPhotos']);
 
-//Show upload photo page
-Route::get('photo-upload',[PhotosController::class, 'upload']);
-
 //Show single photo
-Route::get('photo-single/{id}', function($id) {
+Route::get('photo-single/{id}', function ($id) {
     return view('photo-single', [
         'photo' => Photo::find($id)
     ]);
-}); 
+});
+
+//Show upload photo page
+Route::get('photo-upload', [PhotosController::class, 'upload']);
+
+//Store photo data
+Route::post('photo-all', [PhotosController::class, 'store']);
+
+//Show user register form
+Route::get('/register', [UserController::class, 'create']);
+
+//Store user data
+Route::post('/users', [UserController::class, 'store']);
+
+//Log user out
+Route::post('/logout', [UserController::class, 'logout']);
+
+//Show login form
+Route::get('/login', [UserController::class, 'login']);
+
+//Log in user
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);
