@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PhotosController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Photo;
 
@@ -14,8 +15,12 @@ use App\Models\Photo;
 |
 */
 
-Route::get('/', function () {
-    return view('index', [
-        'photos' => Photo::all()
+//show index page
+Route::get('/', [PhotosController::class, 'index']);
+
+//show single photo
+Route::get('photo-single/{id}', function($id) {
+    return view('photo-single', [
+        'photo' => Photo::find($id)
     ]);
-});
+}); 

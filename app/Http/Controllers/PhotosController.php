@@ -8,15 +8,15 @@ use App\Models\Photo;
 
 class PhotosController extends Controller
 {
-    //show all photos
+    //Show all photos
     public function index(){
         return view('index', [
             'photos' => Photo::all()
         ]);
     }
-
-    //show single photo
-    public function show(Photo $photo){
+    //Show single photo
+    public function show(Photo $photo)
+    {
         return view('photo-single', [
             'photo' => $photo
         ]);
