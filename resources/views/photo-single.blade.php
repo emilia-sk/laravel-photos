@@ -11,6 +11,7 @@
               <div class="card-body">
                 <p class="card-text">{{$photo['description']}}</p>
                 <div class="col">
+
                   @auth
                     <form method="POST" action="/photos/{{$photo->id}}" class="d-inline">
                       @csrf
@@ -18,6 +19,7 @@
                         <button class="btn btn-danger">Delete</button>
                     </form>
                     @endauth
+
                   <small class="text-body-secondary float-end">{{ Carbon\Carbon::parse($photo->created_at)->format('d-m-Y') }}<!--displays creation date/without time--></small>
                 </div>
               </div>

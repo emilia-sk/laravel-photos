@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\PhotosController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
@@ -52,5 +53,8 @@ Route::get('/photo-single/{photo}', [PhotosController::class, 'show']);
 //Store comment data
 Route::post('/comment', [CommentController::class, 'store'])->middleware('auth');
 
-//Show all comments
-// Route::get('/comments', [CommentController::class, 'allComments']);
+//Show all users page
+Route::get('users', [UserController::class, 'showUsersPage']);
+
+//Show contacts page
+Route::get('contacts', [Controller::class, 'showContactsPage']);

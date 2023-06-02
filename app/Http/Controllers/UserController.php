@@ -66,4 +66,13 @@ class UserController extends Controller
             return redirect('/')->with(['message' => 'Влязохте в профила си!']);
         }
     }
+
+    //Show all users
+  public function showUsersPage()
+  {
+      return view('users', [
+          'users'=> User::latest()->paginate(10)
+        ]);
+  }
+    
 }

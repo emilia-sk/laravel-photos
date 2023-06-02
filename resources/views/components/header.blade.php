@@ -5,8 +5,8 @@
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="/" class="nav-link px-2 text-white">Начало</a></li>
                     <li><a href="/photo-all" class="nav-link px-2 text-white">Снимки</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Потребители</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Контакти</a></li>
+                    <li><a href="/users" class="nav-link px-2 text-white">Потребители</a></li>
+                    <li><a href="/contacts" class="nav-link px-2 text-white">Контакти</a></li>
                 </ul>
                 <div class="text-end">
                     <!--USER LOGGED IN-->

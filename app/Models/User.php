@@ -48,7 +48,20 @@ class User extends Authenticatable
     }
 
     //Relationship with comments
-    public function comments() {
+    public function comments(Comment $comment) {
         return $this->hasMany(Comment::class);
     }
+
+    public static function find($id)
+    {
+        $users = self::all();
+
+        foreach ($users as $user) {
+            if ($users['id'] == $id) {
+                return $user;
+            }
+        }
+    }
+    
+    
 }
