@@ -19,7 +19,6 @@ class PhotoFactory extends Factory
         return [
             'title' => $this->faker->name(),
             'description' => $this->faker->sentence(2),
-            'photo' => $this->faker->imageUrl(),
         ];
     }
 }

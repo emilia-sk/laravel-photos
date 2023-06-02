@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Photo;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,7 +16,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-        Photo::factory(10)->create();
+        
+        $user = User::factory()->create([
+            'name' => 'Admin',
+            'email' => 'admin@laravel.com'
+        ]);
+
+        Photo::factory(20)->create([
+            'user_id' => $user->id
+        ]);
     }
 }
