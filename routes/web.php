@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PhotosController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,4 +57,7 @@ Route::post('/comment', [CommentController::class, 'store'])->middleware('auth')
 Route::get('users', [UserController::class, 'showUsersPage']);
 
 //Show contacts page
-Route::get('contacts', [PhotosController::class, 'showContactsPage']);
+Route::get('contacts', [ContactController::class, 'showContactsPage']);
+
+//Store contact form
+Route::post('/contacts', [ContactController::class, 'storeContactForm']);

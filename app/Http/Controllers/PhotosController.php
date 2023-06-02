@@ -76,10 +76,4 @@ class PhotosController extends Controller
         return redirect('photo-all')->with(['message' => 'Снимката е изтрита!']);
     }
 
-      //Show contacts page
-      public function showContactsPage() {
-        return view('index');
-    }
-
-
 }
