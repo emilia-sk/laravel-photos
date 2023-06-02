@@ -17,6 +17,14 @@ class AdminController extends Controller
             'photos' => Photo::latest()->paginate(5)
           ]);
     }
+
+        //Show photos page
+        public function showPhotos()
+        {
+            return view('photo-all-admin', [
+                'photos' => Photo::all()
+              ]);
+        }
     
 
 }

@@ -12,7 +12,7 @@
                 <p class="card-text">{{$photo['description']}}</p>
                 <div class="col">
 
-                  @auth
+                  @auth 
                     <form method="POST" action="/photos/{{$photo->id}}" class="d-inline">
                       @csrf
                       @method('DELETE')

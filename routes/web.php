@@ -69,4 +69,7 @@ Route::post('/contacts', [ContactController::class, 'storeContactForm'])->name('
 /*-----------------------------ADMIN PART--------------------------------- */
 //Admin dashboard
 Route::get('dashboard', [AdminController::class, 'showDashboard']);
+
+//Admin photos
+Route::get('photo-all-admin', [AdminController::class, 'showPhotos']);
 /*-----------------------------ADMIN PART END--------------------------------- */
