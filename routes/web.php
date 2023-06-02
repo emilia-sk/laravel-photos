@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Controller;
 use App\Http\Controllers\PhotosController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
@@ -57,4 +56,4 @@ Route::post('/comment', [CommentController::class, 'store'])->middleware('auth')
 Route::get('users', [UserController::class, 'showUsersPage']);
 
 //Show contacts page
-Route::get('contacts', [Controller::class, 'showContactsPage']);
+Route::get('contacts', [PhotosController::class, 'showContactsPage']);

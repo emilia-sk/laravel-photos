@@ -14,7 +14,9 @@ class PhotosController extends Controller
     //Show Index(main) Page
     public function index()
     {
-        return view('index');
+        return view('index', [
+            'photos' => Photo::all()->take(10)
+        ]);
     }
 
     //Show all photos
@@ -72,6 +74,11 @@ class PhotosController extends Controller
 
         $photo->delete();
         return redirect('photo-all')->with(['message' => 'Снимката е изтрита!']);
+    }
+
+      //Show contacts page
+      public function showContactsPage() {
+        return view('index');
     }
 
 

@@ -1,7 +1,6 @@
 <x-header />
 <x-layout />
 
-
 <div class="container mt-5">
     <table class="table fs-5">
         <thead>

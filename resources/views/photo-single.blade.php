@@ -25,7 +25,7 @@
               </div>
             </div>
           </div><!--photo end-->
-         <x-comments/>
+          
          <div class="col-6 mt-4 p-4">
           <h4 class="mt-1 mb-3">Коментари</h4>
           
