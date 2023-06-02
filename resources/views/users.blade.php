@@ -6,12 +6,12 @@
         <thead>
             
           <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Email</th>
+            <th scope="col">Име</th>
+            <th scope="col">Имейл</th>
           </tr>
           <tr>
             @foreach($users as $user)
-            <td scope="col">{{$user['id']}}</td>
+            <td scope="col">{{$user['name']}}</td>
             <td scope="col">{{$user['email']}}</td>
           </tr>
           @endforeach

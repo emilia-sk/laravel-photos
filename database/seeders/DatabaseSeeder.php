@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@laravel.com'
         ]);
 
+        User::factory(20)->create();
+
         Photo::factory(20)->create([
             'user_id' => $user->id
         ]);
