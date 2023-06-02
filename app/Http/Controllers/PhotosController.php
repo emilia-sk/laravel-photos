@@ -24,6 +24,14 @@ class PhotosController extends Controller
         ]);
     }
 
+    //Show single photo
+    public function show(Photo $photo)
+    {
+        return view('photo-single', [
+            'photo' => $photo
+        ]);
+    }
+
     //Show upload photo page
     public function upload()
     {
@@ -31,8 +39,8 @@ class PhotosController extends Controller
     }
 
     //Store photo data 
-    public function store(Request $request)
-    {
+    public function store(Request $request){
+
         $formFields = $request->validate([
             'title' => 'required',
             'description' => 'required',
@@ -43,24 +51,25 @@ class PhotosController extends Controller
             $formFields['photo'] = $request->file('photo')->store('photos', 'public');
         }
 
+        $formFields['user_id'] = auth()->id();
+
         Photo::create($formFields);
 
         return redirect('photo-all')->with(['message' => 'Снимката е качена!']);
     }
 
-       //Show single photo
-       public function show(Photo $photo)
-       {
-           return view('photo-single', [
-               'photo' => $photo
-           ]);
-       }
-       
-       //Delete photo
-       public function destroy(Photo $photo) {
+    //Delete photo
+    public function destroy(Photo $photo)
+    {
+
+        // Make sure the logged in user is owner
+        if ($photo->user_id != auth()->id()) {
+            abort(403, 'Unauthorized Action');
+        }
+
         $photo->delete();
         return redirect('photo-all')->with(['message' => 'Снимката е изтрита!']);
-       }
+    }
 
- 
+
 }

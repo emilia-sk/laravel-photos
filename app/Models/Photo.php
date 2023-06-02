@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Photo extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'description', 'picture'];
+    protected $fillable = ['title', 'description', 'photo', 'user_id'];
     
     public static function find($id) {
         $photos = self::all();
@@ -18,5 +18,10 @@ class Photo extends Model
                 return $photo;
             }
         }
+    }
+
+    //Relationship to user
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

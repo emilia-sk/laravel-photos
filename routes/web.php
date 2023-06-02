@@ -23,11 +23,7 @@ Route::get('/', [PhotosController::class, 'index']);
 Route::get('photo-all', [PhotosController::class, 'allPhotos']);
 
 //Show single photo
-Route::get('photo-single/{id}', function ($id) {
-    return view('photo-single', [
-        'photo' => Photo::find($id)
-    ]);
-});
+Route::get('/photo-single/{photo}', [PhotosController::class, 'show']);
 
 //Show upload photo page
 Route::get('photo-upload', [PhotosController::class, 'upload'])->middleware('auth');
@@ -36,7 +32,7 @@ Route::get('photo-upload', [PhotosController::class, 'upload'])->middleware('aut
 Route::post('photo-all', [PhotosController::class, 'store'])->middleware('auth');
 
 //Delete photo
-Route::delete('/photos/{photo}', [PhotosController::class, 'destroy']);
+Route::delete('/photos/{photo}', [PhotosController::class, 'destroy'])->middleware('auth');
 
 //Show user register form
 Route::get('/register', [UserController::class, 'create'])->middleware('guest');
@@ -48,7 +44,7 @@ Route::post('/users', [UserController::class, 'store']);
 Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 
 //Show login form
-Route::get('/login', [UserController::class, 'login'])->middleware('guest');
+Route::get('/login', [UserController::class, 'login'])->middleware('guest')->name('login');
 
 //Log in user
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
