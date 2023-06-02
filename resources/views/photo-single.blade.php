@@ -1,5 +1,6 @@
 <x-header/>
 <x-layout/>
+{{-- {{dd($comments['data'])}} --}}
 
 <div class="album py-5">
     <div class="container p-5">
@@ -22,7 +23,30 @@
               </div>
             </div>
           </div><!--photo end-->
-
-          <x-comments/>
+         <x-comments/>
+         <div class="col-6 mt-4 p-4">
+          <h4 class="mt-1 mb-3">Коментари</h4>
+          
+            @auth
+            <form method="POST" action="/comment" class="border p-2"><!--comment form end-->
+              @csrf
+              <label for="inputComment" class="form-label">Напишете Коментар</label>
+              <textarea class="form-control" id="inputComment" name="body" rows="3"></textarea>
+          
+              <button type="submit" class="btn btn-success mt-2">Публикувай</button>
+            </form>
+            @else
+           
+             <div class="col mb-4">
+              <h6 class="mt-2 mb-4 d-inline">Влезте в профила си за да коментирате.</h6>
+              <a href="/login" class="btn btn-success d-inline mx-3">Вход</a>
+             </div><!--comment form-->
+            @endauth
+          
+          @foreach($comments['data'] as $comment)
+             <x-comment :user_id="$comment['user_id']" :body="$comment['body']" :date="$comment['created_at']"/>
+          @endforeach
+          
+          </div>
     </div>
   </div>

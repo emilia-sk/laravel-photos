@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PhotosController;
 use App\Http\Controllers\UserController;
-use App\Models\Photo;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +21,6 @@ Route::get('/', [PhotosController::class, 'index']);
 
 //Show all photos page
 Route::get('photo-all', [PhotosController::class, 'allPhotos']);
-
-//Show single photo
-Route::get('/photo-single/{photo}', [PhotosController::class, 'show']);
 
 //Show upload photo page
 Route::get('photo-upload', [PhotosController::class, 'upload'])->middleware('auth');
@@ -48,3 +45,12 @@ Route::get('/login', [UserController::class, 'login'])->middleware('guest')->nam
 
 //Log in user
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+
+//Show single photo
+Route::get('/photo-single/{photo}', [PhotosController::class, 'show']);
+
+//Store comment data
+Route::post('/comment', [CommentController::class, 'store'])->middleware('auth');
+
+//Show all comments
+// Route::get('/comments', [CommentController::class, 'allComments']);

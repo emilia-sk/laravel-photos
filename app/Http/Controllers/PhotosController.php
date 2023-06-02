@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Photo;
+use App\Models\Comment;
 
 
 class PhotosController extends Controller
@@ -27,8 +28,10 @@ class PhotosController extends Controller
     //Show single photo
     public function show(Photo $photo)
     {
+        // dd(Comment::latest()->paginate(10)->toArray());
         return view('photo-single', [
-            'photo' => $photo
+            'photo' => $photo,
+            'comments' => Comment::latest()->paginate(10)->toArray()
         ]);
     }
 
