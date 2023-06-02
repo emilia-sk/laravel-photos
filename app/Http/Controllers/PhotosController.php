@@ -45,7 +45,7 @@ class PhotosController extends Controller
 
         Photo::create($formFields);
 
-        return redirect('photo-all');
+        return redirect('photo-all')->with(['message' => 'Снимката е качена!']);
     }
 
        //Show single photo
@@ -54,6 +54,12 @@ class PhotosController extends Controller
            return view('photo-single', [
                'photo' => $photo
            ]);
+       }
+       
+       //Delete photo
+       public function destroy(Photo $photo) {
+        $photo->delete();
+        return redirect('photo-all')->with(['message' => 'Снимката е изтрита!']);
        }
 
  
