@@ -11,7 +11,9 @@
                 <p class="card-text">{{$photo['description']}}</p>
                 <div class="col">
                     <a href="/photo-single/{{ $photo->id }}" class="btn btn-sm btn-outline-secondary">Преглед</a>
-                    <form class="d-inline">
+                    <form method="POST" action="/photos/{{$photo->id}}" class="d-inline">
+                      @csrf
+                      @method('DELETE')
                         <button class="btn btn-danger">Delete</button>
                     </form>
                   <small class="text-body-secondary float-end">{{ Carbon\Carbon::parse($photo->created_at)->format('d-m-Y') }}<!--displays creation date/without time--></small>

@@ -30,22 +30,25 @@ Route::get('photo-single/{id}', function ($id) {
 });
 
 //Show upload photo page
-Route::get('photo-upload', [PhotosController::class, 'upload']);
+Route::get('photo-upload', [PhotosController::class, 'upload'])->middleware('auth');
 
 //Store photo data
-Route::post('photo-all', [PhotosController::class, 'store']);
+Route::post('photo-all', [PhotosController::class, 'store'])->middleware('auth');
+
+//Delete photo
+Route::delete('/photos/{photo}', [PhotosController::class, 'destroy']);
 
 //Show user register form
-Route::get('/register', [UserController::class, 'create']);
+Route::get('/register', [UserController::class, 'create'])->middleware('guest');
 
 //Store user data
 Route::post('/users', [UserController::class, 'store']);
 
 //Log user out
-Route::post('/logout', [UserController::class, 'logout']);
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 
 //Show login form
-Route::get('/login', [UserController::class, 'login']);
+Route::get('/login', [UserController::class, 'login'])->middleware('guest');
 
 //Log in user
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);

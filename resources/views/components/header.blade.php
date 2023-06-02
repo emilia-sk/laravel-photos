@@ -1,4 +1,4 @@
-<div class="container-fluid p-0">
+<div class="container-fluid p-0 overflow-hidden">
     <header class="p-3 text-bg-dark">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -26,4 +26,9 @@
             </div>
         </div>
     </header>
+
+    <x-flash-message/><!--flash message for events-->
+
 </div>
+
+

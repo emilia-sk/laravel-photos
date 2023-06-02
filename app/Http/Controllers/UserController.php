@@ -33,7 +33,7 @@ class UserController extends Controller
         //Login
         auth()->login($user);
 
-        return redirect('/');
+        return redirect('/')->with(['message' => 'Регистрацията беше успешна!']);
     }
 
     //Logout user
@@ -44,7 +44,7 @@ class UserController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/')->with(['message' => 'Излязохте от профила си!']);
     }
 
     //Show Login Form
@@ -63,7 +63,7 @@ class UserController extends Controller
         if (auth()->attempt($formFields)) {
             $request->session()->regenerate();
 
-            return redirect('/');
+            return redirect('/')->with(['message' => 'Влязохте в профила си!']);
         }
     }
 }
