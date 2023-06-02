@@ -60,4 +60,4 @@ Route::get('users', [UserController::class, 'showUsersPage']);
 Route::get('contacts', [ContactController::class, 'showContactsPage']);
 
 //Store contact form
-Route::post('/contacts', [ContactController::class, 'storeContactForm']);
+Route::post('/contacts', [ContactController::class, 'storeContactForm'])->name('contact-form.store');

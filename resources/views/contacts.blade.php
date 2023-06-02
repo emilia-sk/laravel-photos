@@ -7,7 +7,7 @@
                 <h4 class="text-center">Изпратете съобщение</h4>
                 <hr>
 
-                <form method="POST" action="">
+                <form method="POST" action="{{ route('contact-form.store') }}">
                     @csrf
                     <label for="inputMessageName" class="form-label">Име</label>
                     <input type="text" class="form-control mb-3" id="inputMessageName" placeholder="" name="name">
