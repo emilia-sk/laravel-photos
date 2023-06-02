@@ -15,7 +15,7 @@ php artisan migrate
 ```
 
 - ### Database Seeding
-To add the example recipes with a single user, run the following:
+To add the example records, run the following:
 ```
 php artisan db:seed
 ```
