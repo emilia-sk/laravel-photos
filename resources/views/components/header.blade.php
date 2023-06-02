@@ -21,14 +21,18 @@
                         <!--USER NOT LOGGED IN-->
                         <a href="/login" class="btn btn-outline-light me-2">Вход</a>
                         <a href="/register" class="btn btn-success">Регистрация</a>
-                    @endauth
+                        <td>
+                        @endauth
+
+                        @if(auth()->check() && auth()->user()->isAdmin == 1) <!--If user is admin shows link for dashboard-->
+                            <a href="dashboard" class="btn btn-success">Админ</a>
+                        @endif
                 </div>
             </div>
         </div>
     </header>
 
-    <x-flash-message/><!--flash message for events-->
+    <x-flash-message />
+    <!--flash message for events-->
 
 </div>
-
-

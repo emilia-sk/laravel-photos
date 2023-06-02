@@ -5,6 +5,7 @@ use App\Http\Controllers\PhotosController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,7 @@ use App\Http\Controllers\ContactController;
 |
 */
 
+/*-----------------------------USERS PART START--------------------------------- */
 //Show index page
 Route::get('/', [PhotosController::class, 'index']);
 
@@ -61,3 +63,10 @@ Route::get('contacts', [ContactController::class, 'showContactsPage']);
 
 //Store contact form
 Route::post('/contacts', [ContactController::class, 'storeContactForm'])->name('contact-form.store');
+
+/*-----------------------------USERS PART END--------------------------------- */
+
+/*-----------------------------ADMIN PART--------------------------------- */
+//Admin dashboard
+Route::get('dashboard', [AdminController::class, 'showDashboard']);
+/*-----------------------------ADMIN PART END--------------------------------- */

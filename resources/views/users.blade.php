@@ -4,7 +4,6 @@
 <div class="container mt-5">
     <table class="table fs-5">
         <thead>
-            
           <tr>
             <th scope="col">Име</th>
             <th scope="col">Имейл</th>

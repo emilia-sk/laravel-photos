@@ -74,5 +74,6 @@ class UserController extends Controller
           'users'=> User::latest()->paginate(10)
         ]);
   }
+
     
 }
