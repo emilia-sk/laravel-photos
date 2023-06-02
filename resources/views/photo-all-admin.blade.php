@@ -1,4 +1,4 @@
-<x-header/>
+<x-header-admin/>
 <x-layout/>
 
 <div class="album py-5">
